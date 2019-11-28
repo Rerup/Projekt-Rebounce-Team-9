@@ -56,6 +56,25 @@ namespace GettingRealConsoleApp
             receipts.Add(receipt);
             return receipt;
         }
+
+        public void ShowAll()
+        {
+            //Kald IKKE GODKENDTE kvitteringer
+            List<Receipt> r0List = GetReceipts(0);
+
+            //Kald GODKENDTE kvitteringer
+            List<Receipt> r1List = GetReceipts(1);
+            List<Receipt> r2List = GetReceipts(2);
+
+            //Tilføj listerne sammen
+            r1List.AddRange(r2List);
+
+            //Print IKKE GODKENDTE
+            PrintReceipts(0, r0List);
+
+            //Print GODKENDTE
+            PrintReceipts(12, r1List);
+        }
     
         public Receipt EditReceipt(int id, DateTime purchaseDate, int amount, int shopId)
         {
