@@ -475,7 +475,7 @@ namespace UnitTest2
         {
             List<Receipt> receipts = ReceiptRepo.GetReceipts(1);
 
-            Console.WriteLine("Tissemaaand");
+            Console.WriteLine("Tissemaaand, og diiiiillllerrr");
             bool result = false;
             foreach (Receipt receipt in receipts)
             {
