@@ -354,6 +354,7 @@ namespace UnitTest2
             }
         }
 
+
         [TestMethod]
         public void GetReceiptsInValid1()
         {
@@ -361,12 +362,19 @@ namespace UnitTest2
             // Assert
             foreach (Receipt item in result)
             {
-                if (item.Id == 5)
-                {
-                    Assert.AreEqual(item.AmountInDkk, 375);
-                }
+                Assert.AreEqual(item.Id, 5);
             }
+
         }
+
+        [TestMethod]
+        public void GetReceiptsInValid2()
+        {
+            List<Receipt> result = ReceiptRepo.GetReceipts(3);
+            // Assert
+            Assert.AreEqual(result.Count, 1);
+        }
+
 
         [TestMethod]
         public void GetReceipt1()
@@ -475,7 +483,6 @@ namespace UnitTest2
         {
             List<Receipt> receipts = ReceiptRepo.GetReceipts(1);
 
-            Console.WriteLine("Tissemaaand, og diiiiillllerrr");
             bool result = false;
             foreach (Receipt receipt in receipts)
             {
