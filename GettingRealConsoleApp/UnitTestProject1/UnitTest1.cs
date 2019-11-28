@@ -463,7 +463,7 @@ namespace UnitTest2
         }
 
         [TestMethod]
-        public void ShowReceipts1()                                       //Tester for om ShowReceipts indeholder alle Receipts
+        public void GetReceipts1()                                       //Tester for om ShowReceipts indeholder alle Receipts
         {
             List<Receipt> receipts = new List<Receipt>();
             receipts.Add(receipt1);
@@ -479,7 +479,7 @@ namespace UnitTest2
         }
 
         [TestMethod]
-        public void ShowReceipts2()                                       //Tester for om ShowReceipts viser alle med status 1
+        public void GetReceipts2()                                       //Tester for om ShowReceipts viser alle med status 1
         {
             List<Receipt> receipts = ReceiptRepo.GetReceipts(1);
 
