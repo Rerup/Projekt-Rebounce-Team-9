@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using GettingRealConsoleApp.Appl;
+using GettingRealConsoleApp.Domain;
 
 namespace GettingRealConsoleApp
 {
@@ -29,7 +30,23 @@ namespace GettingRealConsoleApp
                 //Receipts
                 case 1:
                     Console.WriteLine("Vælg:\n 1) Indskriv kvittering\n 2) Ret eksisterende kvittering\n\nAfslut med enter.");
-                    //Show All Receipts()
+
+                    //Kald IKKE GODKENDTE kvitteringer
+                    List<Receipt> r0List = receiptRepo.GetReceipts(0);
+
+                    //Kald GODKENDTE kvitteringer
+                    List<Receipt> r1List = receiptRepo.GetReceipts(1);
+                    List<Receipt> r2List = receiptRepo.GetReceipts(2);
+
+                    //Tilføj listerne sammen
+                    r1List.AddRange(r2List);
+
+                    //Print IKKE GODKENDTE
+                    receiptRepo.PrintReceipts(0, r0List);
+
+                    //Print GODKENDTE
+                    receiptRepo.PrintReceipts(12, r1List);
+
                     int taskReceipt = int.Parse(Console.ReadLine());
                     switch (taskReceipt)
                     {

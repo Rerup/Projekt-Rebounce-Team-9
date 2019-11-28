@@ -97,6 +97,34 @@ namespace GettingRealConsoleApp
             return false;
         }
 
+        public void PrintReceipts(int status, List<Receipt> receipts)
+        {
+            if (status == 0)
+            {
+                Console.WriteLine("_________________________________________________________________");
+                Console.WriteLine("Liste over IKKE GODKENDTE kvitteringer");
+                Console.WriteLine("_________________________________________________________________");
+                Console.WriteLine("ID\t| Brugernavn\t| Indsendt dato\t\t| Action\t|");
+                Console.WriteLine("_________________________________________________________________");
+                foreach (Receipt r in receipts)
+                {
+                    Console.WriteLine(r.Id + "\t| " + r.UserId + "\t\t| " + r.InsertDate + "\t| Rediger\t|");
+                }
+            }
+            if (status == 12)
+            {
+                Console.WriteLine("");
+                Console.WriteLine("Liste over GODKENDTE kvitteringer");
+                Console.WriteLine("_________________________________________________________________________________________________________________________________");
+                Console.WriteLine("ID\t| Brugernavn(id)| Butik(id)\t| Beløb\t| Indsendt dato\t\t| Købsdato\t\t| Point(id)\t| Action\t\t|");
+                Console.WriteLine("_________________________________________________________________________________________________________________________________");
+                foreach (Receipt r in receipts)
+                {
+                    Console.WriteLine(r.Id + "\t| " + r.UserId + "\t\t| " + r.ShopId + "\t\t| " + r.AmountInDkk + "\t| " + r.InsertDate + "\t| " + r.PurchaseDate + "\t| " + r.UserLevel + "\t\t| Rediger\t|");
+                }
+            }
+        }
+
         public void AddHardCode()
         {
             Receipt r1 = new Receipt();
