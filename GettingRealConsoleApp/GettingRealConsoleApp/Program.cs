@@ -25,7 +25,7 @@ namespace GettingRealConsoleApp
             {
                 Console.Clear();
                 Console.WriteLine("Rebounce");
-                Console.WriteLine("Vælg:\n 1) Kvitteringer\n 2) Brugere\n 3) Partnere\n 4) Puljer\n\nAfslut med enter.");
+                Console.WriteLine("Vælg:\n 1) Kvitteringer\n 2) Brugere\n 3) Partnere\n 4) Puljer\n 0) Quit\n\nAfslut med enter.");
                 int command = int.Parse(Console.ReadLine());
 
                 switch (command)
@@ -35,8 +35,6 @@ namespace GettingRealConsoleApp
                         Console.Clear();
                         receiptRepo.ShowAll();
                         Console.WriteLine("Vælg:\n 1) Indskriv kvittering\n 2) Ret eksisterende kvittering\n\nAfslut med enter.");
-
-                        
 
                         int taskReceipt = int.Parse(Console.ReadLine());
                         switch (taskReceipt)
@@ -48,11 +46,14 @@ namespace GettingRealConsoleApp
                             case 2:
                                 //Edit Receipt
                                 break;
+                            default: Console.WriteLine("Invalid number"); 
+                                break;
                         }
                         break;
 
                     //Users
                     case 2:
+                        Console.Clear();
                         Console.WriteLine("Vælg:\n 1) Find brugere baseret på ID\n 2) Rediger i en bruger\n\nAfslut med enter.");
                         int taskUser = int.Parse(Console.ReadLine());
                         switch (taskUser)
@@ -63,11 +64,14 @@ namespace GettingRealConsoleApp
                             case 2:
                                 //Edit User
                                 break;
+                            default: Console.WriteLine("Invalid number"); 
+                                break;
                         }
                         break;
 
                     //Partners
                     case 3:
+                        Console.Clear();
                         Console.WriteLine("Vælg:\n 1) Kvitteringer\n 2) Brugere\n\nAfslut med enter.");
                         int taskPartner = int.Parse(Console.ReadLine());
                         switch (taskPartner)
@@ -78,13 +82,30 @@ namespace GettingRealConsoleApp
                             case 2:
                                 //Register new shop
                                 break;
+                            default: Console.WriteLine("Invalid number"); 
+                                break;
                         }
                         break;
 
                     //Pool
                     case 4:
-                        Console.WriteLine("Ikke klar endnu...");
-                        Console.ReadLine();
+                        //Her vises den aktuelle pulje og en liste af vindere, så snart man kommer ind i menuen
+                        Console.Clear();
+                        Console.WriteLine("Vælg et id for at redigere status på en kvittering, eller vælg 0 for at vende tilbage.");
+                        int taskPool = int.Parse(Console.ReadLine());
+                        switch (taskPool)
+                        {
+                            case 0:
+                                break;
+                            default:
+                                //Edit reciept where taskPool == ID
+                                break;
+                        }
+                        break;
+                    case 0:
+                        isRunning = false;
+                        break;
+                    default: Console.WriteLine("Invalid number"); 
                         break;
                 }
             }
