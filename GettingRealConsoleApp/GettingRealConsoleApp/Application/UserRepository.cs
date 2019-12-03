@@ -42,8 +42,8 @@ namespace GettingRealConsoleApp.Appl
             foreach (Receipt r in receipts)
             {
                 User u = GetUser(r.UserId);
-                Console.WriteLine(r.Status + "\t| " + u.FullName + "\t| " + u.Phone + "\t| " + r.AmountInDkk + "\t| ");
-                }
+                Console.WriteLine(r.Status + "\t| " + u.FullName + "\t| " + u.Phone + "\t| " + r.AmountInDkk + "\t| " + "---" + "\t| ");
+            }
         }
         
 

@@ -467,7 +467,7 @@ namespace GettingRealConsoleApp
             r28.ShopId = 2;
             r28.Status = 2;
 
-            receipts.Add(r27);
+            receipts.Add(r28);
 
 
             //Levels nulstillet hver måned???

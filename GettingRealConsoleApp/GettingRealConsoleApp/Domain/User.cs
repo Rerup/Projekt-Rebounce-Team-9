@@ -20,7 +20,8 @@ namespace GettingRealConsoleApp.Domain
 
         public override string ToString()
         {
-            return null; 
+            string result = "Username: " + UserName;
+            return result; 
         }
 
     }
