@@ -30,6 +30,23 @@ namespace GettingRealConsoleApp
             return result;
         }
 
+        public List<Receipt> GetReceipts(int status1, int status2)
+        {
+            List<Receipt> result = new List<Receipt>();
+            //result = null;
+
+            foreach (Receipt receipt in receipts)
+            {
+                if (receipt.Status == status1 || receipt.Status == status2)
+                {
+                    result.Add(receipt);
+                }
+            }
+
+            return result;
+        }
+
+
         //samme som ovenstående
         public Receipt GetReceipt(int id)
         {
@@ -65,15 +82,17 @@ namespace GettingRealConsoleApp
             //Kald GODKENDTE kvitteringer
             List<Receipt> r1List = GetReceipts(1);
             List<Receipt> r2List = GetReceipts(2);
+            List<Receipt> r4List = GetReceipts(4);
 
             //Tilføj listerne sammen
             r1List.AddRange(r2List);
+            r1List.AddRange(r4List);
 
             //Print IKKE GODKENDTE
             PrintReceipts(0, r0List);
 
             //Print GODKENDTE
-            PrintReceipts(12, r1List);
+            PrintReceipts(124, r1List);
         }
     
         public Receipt EditReceipt(int id, DateTime purchaseDate, int amount, int shopId)
@@ -130,7 +149,7 @@ namespace GettingRealConsoleApp
                     Console.WriteLine(r.Id + "\t| " + r.UserId + "\t\t| " + r.InsertDate + "\t| Rediger\t|");
                 }
             }
-            if (status == 12)
+            if (status == 124)
             {
                 Console.WriteLine("");
                 Console.WriteLine("Liste over GODKENDTE kvitteringer");
@@ -142,6 +161,40 @@ namespace GettingRealConsoleApp
                     Console.WriteLine(r.Id + "\t| " + r.UserId + "\t\t| " + r.ShopId + "\t\t| " + r.AmountInDkk + "\t| " + r.InsertDate + "\t| " + r.PurchaseDate + "\t| " + r.UserLevel + "\t\t| Rediger\t|");
                 }
             }
+        }
+
+        public void PrintWinners(List<Receipt> receipts, UserRepository userRepository)
+        {
+            Console.WriteLine("");
+            Console.WriteLine("Liste over vindere");
+            Console.WriteLine("____________________________________________________________________________________________________");
+            Console.WriteLine("Status\t | Brugernavn\t | Telefonnummer\t | Beløb\t | Antal gange vundet\t");
+            Console.WriteLine("____________________________________________________________________________________________________");
+            foreach (Receipt r in receipts)
+            {
+                User u = userRepository.GetUser(r.UserId);
+                string paymentStatus;
+                if (r.Status == 4) { paymentStatus = "Betalt"; }
+                else { paymentStatus = "Ikke betalt"; }
+                Console.WriteLine(paymentStatus + "\t| " + u.FullName + "\t| " + u.Phone + "\t| " + r.AmountInDkk + "\t| " + GetNumberOfWinsForUser(u.Id) + "\t| ");
+            }
+        }
+
+        public int GetNumberOfWinsForUser(int id)
+        {
+            int result = 0;
+            foreach (Receipt receipt in receipts)
+            {
+                if(receipt.Status == 2 || receipt.Status == 4)
+                {
+                    if (receipt.UserId == id)
+                    {
+                        result++;
+                    }
+                }
+                
+            }
+            return result;
         }
 
         public void AddHardCode()
@@ -468,6 +521,18 @@ namespace GettingRealConsoleApp
             r28.Status = 2;
 
             receipts.Add(r28);
+
+            Receipt r29 = new Receipt(); // Vinder Kvittering
+            r29.Id = 18;
+            r29.InsertDate = new DateTime(2019, 11, 7);
+            r29.PurchaseDate = new DateTime(2019, 10, 3);
+            r29.AmountInDkk = 130;
+            r29.UserLevel = 2;
+            r29.UserId = 5;
+            r29.ShopId = 2;
+            r29.Status = 4;
+
+            receipts.Add(r29);
 
 
             //Levels nulstillet hver måned???

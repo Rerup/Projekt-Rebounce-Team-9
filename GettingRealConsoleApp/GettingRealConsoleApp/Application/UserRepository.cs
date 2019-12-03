@@ -30,21 +30,6 @@ namespace GettingRealConsoleApp.Appl
             }
             return userList;
         }
-
-
-        public void PrintWinners(List<Receipt> receipts)
-        {
-            Console.WriteLine("");
-            Console.WriteLine("Liste over vindere");
-            Console.WriteLine("____________________________________________________________________________________________________");
-            Console.WriteLine("Status\t | Brugernavn\t | Telefonnummer\t | Beløb\t | Antal gange vundet\t");
-            Console.WriteLine("____________________________________________________________________________________________________");
-            foreach (Receipt r in receipts)
-            {
-                User u = GetUser(r.UserId);
-                Console.WriteLine(r.Status + "\t| " + u.FullName + "\t| " + u.Phone + "\t| " + r.AmountInDkk + "\t| " + "---" + "\t| ");
-            }
-        }
         
 
         public void AddHardCode()

@@ -90,7 +90,7 @@ namespace GettingRealConsoleApp
                     case 4:
                         //Her vises den aktuelle pulje og en liste af vindere, så snart man kommer ind i menuen
                         Console.Clear();
-                        userRepo.PrintWinners(receiptRepo.GetReceipts(2));
+                        receiptRepo.PrintWinners(receiptRepo.GetReceipts(2,4),userRepo);
                         Console.WriteLine("Vælg et id for at redigere status på en kvittering, eller vælg 0 for at vende tilbage.");
                         int taskPool = int.Parse(Console.ReadLine());
                         switch (taskPool)
