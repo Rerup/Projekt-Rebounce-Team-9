@@ -8,7 +8,6 @@ namespace GettingRealConsoleApp
 {
     public class Program
     {
-        
         public static void Main(string[] args)
         {
             PartnerRepository partnerRepo = new PartnerRepository();
@@ -91,6 +90,7 @@ namespace GettingRealConsoleApp
                     case 4:
                         //Her vises den aktuelle pulje og en liste af vindere, så snart man kommer ind i menuen
                         Console.Clear();
+                        userRepo.PrintWinners(receiptRepo.GetReceipts(2));
                         Console.WriteLine("Vælg et id for at redigere status på en kvittering, eller vælg 0 for at vende tilbage.");
                         int taskPool = int.Parse(Console.ReadLine());
                         switch (taskPool)

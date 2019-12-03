@@ -9,10 +9,43 @@ namespace GettingRealConsoleApp.Appl
     {
         public List<User> users = new List<User>(); //Initialisering af liste med brugere
 
-        public List<User> GetUser(int Id)  //Henter liste over Brugere
+        public User GetUser(int id)  //Henter liste over Brugere
         {
-            return users;
+            foreach(User u in users)
+            {
+                if(u.Id == id)
+                {
+                    return u;
+                }
+            }
+            return null;
         }
+
+        public List<User> GetUsers(List<int> userIds)
+        {
+            List<User> userList = new List<User>();
+            foreach(int i in userIds)
+            {
+                userList.Add(GetUser(i));
+            }
+            return userList;
+        }
+
+
+        public void PrintWinners(List<Receipt> receipts)
+        {
+            Console.WriteLine("");
+            Console.WriteLine("Liste over vindere");
+            Console.WriteLine("____________________________________________________________________________________________________");
+            Console.WriteLine("Status\t | Brugernavn\t | Telefonnummer\t | Beløb\t | Antal gange vundet\t");
+            Console.WriteLine("____________________________________________________________________________________________________");
+            foreach (Receipt r in receipts)
+            {
+                User u = GetUser(r.UserId);
+                Console.WriteLine(r.Status + "\t| " + u.FullName + "\t| " + u.Phone + "\t| " + r.AmountInDkk + "\t| ");
+                }
+        }
+        
 
         public void AddHardCode()
         {
