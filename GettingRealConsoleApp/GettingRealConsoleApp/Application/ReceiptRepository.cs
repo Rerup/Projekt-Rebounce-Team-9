@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using GettingRealConsoleApp.Domain;
 using GettingRealConsoleApp.Appl;
+using System.Linq;
 
 namespace GettingRealConsoleApp
 {
@@ -194,6 +195,18 @@ namespace GettingRealConsoleApp
                 }
                 
             }
+            return result;
+        }
+
+        public List<Receipt> GetCurrentPool()
+        {
+            List<Receipt> result = new List<Receipt>();
+
+            result = GetReceipts(1);
+            result = result.OrderBy(receipt => receipt.InsertDate.Ticks).ToList();
+
+
+                                 
             return result;
         }
 
@@ -402,7 +415,7 @@ namespace GettingRealConsoleApp
             receipts.Add(r18);
 
             Receipt r19 = new Receipt();
-            r19.Id = 18;
+            r19.Id = 19;
             r19.InsertDate = new DateTime(2019, 10, 11);
             r19.PurchaseDate = new DateTime(2019, 10, 9);
             r19.AmountInDkk = 513;
@@ -414,7 +427,7 @@ namespace GettingRealConsoleApp
             receipts.Add(r19);
 
             Receipt r20 = new Receipt();
-            r20.Id = 18;
+            r20.Id = 20;
             r20.InsertDate = new DateTime(2019, 5, 13);
             r20.PurchaseDate = new DateTime(2019, 5, 8);
             r20.AmountInDkk = 518;
@@ -426,7 +439,7 @@ namespace GettingRealConsoleApp
             receipts.Add(r20);
 
             Receipt r21 = new Receipt();
-            r21.Id = 18;
+            r21.Id = 21;
             r21.InsertDate = new DateTime(2019, 5, 28);
             r21.PurchaseDate = new DateTime(2019, 5, 23);
             r21.AmountInDkk = 322;
@@ -438,7 +451,7 @@ namespace GettingRealConsoleApp
             receipts.Add(r21);
 
             Receipt r22 = new Receipt();
-            r22.Id = 18;
+            r22.Id = 22;
             r22.InsertDate = new DateTime(2019, 6, 12);
             r22.PurchaseDate = new DateTime(2019, 6, 8);
             r22.AmountInDkk = 450;
@@ -450,7 +463,7 @@ namespace GettingRealConsoleApp
             receipts.Add(r22);
 
             Receipt r23 = new Receipt();
-            r23.Id = 18;
+            r23.Id = 23;
             r23.InsertDate = new DateTime(2019, 7, 19);
             r23.PurchaseDate = new DateTime(2019, 7, 13);
             r23.AmountInDkk = 222;
@@ -462,7 +475,7 @@ namespace GettingRealConsoleApp
             receipts.Add(r23);
 
             Receipt r24 = new Receipt();
-            r24.Id = 18;
+            r24.Id = 24;
             r24.InsertDate = new DateTime(2019, 7, 12);
             r24.PurchaseDate = new DateTime(2019, 7, 11);
             r24.AmountInDkk = 518;
@@ -474,7 +487,7 @@ namespace GettingRealConsoleApp
             receipts.Add(r24);
 
             Receipt r25 = new Receipt();
-            r25.Id = 18;
+            r25.Id = 25;
             r25.InsertDate = new DateTime(2019, 11, 22);
             r25.PurchaseDate = new DateTime(2019, 11, 13);
             r25.AmountInDkk = 333;
@@ -486,7 +499,7 @@ namespace GettingRealConsoleApp
             receipts.Add(r25);
 
             Receipt r26 = new Receipt();
-            r26.Id = 18;
+            r26.Id = 26;
             r26.InsertDate = new DateTime(2019, 11, 4);
             r26.PurchaseDate = new DateTime(2019, 10, 5);
             r26.AmountInDkk = 518;
@@ -498,7 +511,7 @@ namespace GettingRealConsoleApp
             receipts.Add(r26);
 
             Receipt r27 = new Receipt(); // Vinder Kvittering
-            r27.Id = 18;
+            r27.Id = 27;
             r27.InsertDate = new DateTime(2019, 11, 9);
             r27.PurchaseDate = new DateTime(2019, 10, 8);
             r27.AmountInDkk = 280;
@@ -511,7 +524,7 @@ namespace GettingRealConsoleApp
 
 
             Receipt r28 = new Receipt(); // Vinder Kvittering
-            r28.Id = 18;
+            r28.Id = 28;
             r28.InsertDate = new DateTime(2019, 11, 7);
             r28.PurchaseDate = new DateTime(2019, 10, 3);
             r28.AmountInDkk = 130;
@@ -523,7 +536,7 @@ namespace GettingRealConsoleApp
             receipts.Add(r28);
 
             Receipt r29 = new Receipt(); // Vinder Kvittering
-            r29.Id = 18;
+            r29.Id = 29;
             r29.InsertDate = new DateTime(2019, 11, 7);
             r29.PurchaseDate = new DateTime(2019, 10, 3);
             r29.AmountInDkk = 130;

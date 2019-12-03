@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using GettingRealConsoleApp.Appl;
 using GettingRealConsoleApp.Domain;
+using System.Linq;
 
 namespace GettingRealConsoleApp
 {
@@ -23,6 +24,7 @@ namespace GettingRealConsoleApp
             while (isRunning == true)
             {
                 Console.Clear();
+                receiptRepo.GetCurrentPool();
                 Console.WriteLine("Rebounce");
                 Console.WriteLine("Vælg:\n 1) Kvitteringer\n 2) Brugere\n 3) Partnere\n 4) Puljer\n 0) Quit\n\nAfslut med enter.");
                 int command = int.Parse(Console.ReadLine());

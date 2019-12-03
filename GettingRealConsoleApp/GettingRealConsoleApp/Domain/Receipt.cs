@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace GettingRealConsoleApp.Domain
 {
@@ -18,7 +19,7 @@ namespace GettingRealConsoleApp.Domain
 
         public override string ToString()
         {
-            string result = "User: " + UserId.ToString();
+            string result = Id + "Insert date: " + InsertDate.ToString();
             return result;
         }
     }
