@@ -68,7 +68,7 @@ namespace GettingRealConsoleApp.Appl
             User u3 = new User();
             u3.Id = 3;
             u3.UserName = "Basse3";
-            u3.FullName = "Lone Jensen";
+            u3.FullName = "Lone Højre";
             u3.Phone = "23857532";
             u3.Level = new Level(LevelEnum.five);
             users.Add(u3);
