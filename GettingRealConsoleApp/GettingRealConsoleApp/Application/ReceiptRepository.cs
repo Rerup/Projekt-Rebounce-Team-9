@@ -444,6 +444,32 @@ namespace GettingRealConsoleApp
 
             receipts.Add(r26);
 
+            Receipt r27 = new Receipt(); // Vinder Kvittering
+            r27.Id = 18;
+            r27.InsertDate = new DateTime(2019, 11, 9);
+            r27.PurchaseDate = new DateTime(2019, 10, 8);
+            r27.AmountInDkk = 280;
+            r27.UserLevel = 1;
+            r27.UserId = 2;
+            r27.ShopId = 3;
+            r27.Status = 2;
+
+            receipts.Add(r27);
+
+
+            Receipt r28 = new Receipt(); // Vinder Kvittering
+            r28.Id = 18;
+            r28.InsertDate = new DateTime(2019, 11, 7);
+            r28.PurchaseDate = new DateTime(2019, 10, 3);
+            r28.AmountInDkk = 130;
+            r28.UserLevel = 2;
+            r28.UserId = 5;
+            r28.ShopId = 2;
+            r28.Status = 2;
+
+            receipts.Add(r27);
+
+
             //Levels nulstillet hver måned???
 
 
