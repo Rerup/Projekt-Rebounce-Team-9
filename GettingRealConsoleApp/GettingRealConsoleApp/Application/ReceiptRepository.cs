@@ -199,6 +199,7 @@ namespace GettingRealConsoleApp
             r6.AmountInDkk = 270;
             r6.UserLevel = 2;
             r6.UserId = 6;
+            r6.ShopId = 1;
             r6.Status = 1;
 
             receipts.Add(r6);
@@ -210,6 +211,7 @@ namespace GettingRealConsoleApp
             r7.AmountInDkk = 677;
             r7.UserLevel = 1;
             r7.UserId = 7;
+            r7.ShopId = 2;
             r7.Status = 1;
 
             receipts.Add(r7);
@@ -221,6 +223,7 @@ namespace GettingRealConsoleApp
             r8.AmountInDkk = 114;
             r8.UserLevel = 4;
             r8.UserId = 8;
+            r8.ShopId = 3;
             r8.Status = 1;
 
             receipts.Add(r8);
@@ -232,6 +235,7 @@ namespace GettingRealConsoleApp
             r9.AmountInDkk = 229;
             r9.UserLevel = 5;
             r9.UserId = 9;
+            r9.ShopId = 4;
             r9.Status = 1;
 
             receipts.Add(r9);
@@ -243,6 +247,7 @@ namespace GettingRealConsoleApp
             r10.AmountInDkk = 654;
             r10.UserLevel = 3;
             r10.UserId = 2;
+            r10.ShopId = 5;
             r10.Status = 1;
 
             receipts.Add(r10);
@@ -254,6 +259,7 @@ namespace GettingRealConsoleApp
             r11.AmountInDkk = 178;
             r11.UserLevel = 3;
             r11.UserId = 10;
+            r11.ShopId = 6;
             r11.Status = 1;
 
             receipts.Add(r11);
@@ -265,6 +271,7 @@ namespace GettingRealConsoleApp
             r12.AmountInDkk = 67;
             r12.UserLevel = 4;
             r12.UserId = 1;
+            r12.ShopId = 7;
             r12.Status = 1;
 
             receipts.Add(r12);
@@ -276,6 +283,7 @@ namespace GettingRealConsoleApp
             r13.AmountInDkk = 302;
             r13.UserLevel = 1;
             r13.UserId = 2;
+            r13.ShopId = 1;
             r13.Status = 1;
 
             receipts.Add(r13);
@@ -287,6 +295,7 @@ namespace GettingRealConsoleApp
             r14.AmountInDkk = 259;
             r14.UserLevel = 5;
             r14.UserId = 3;
+            r14.ShopId = 2;
             r14.Status = 1;
 
             receipts.Add(r14);
@@ -298,6 +307,7 @@ namespace GettingRealConsoleApp
             r15.AmountInDkk = 517;
             r15.UserLevel = 5;
             r15.UserId = 4;
+            r15.ShopId = 3;
             r15.Status = 1;
 
             receipts.Add(r15);
@@ -309,6 +319,7 @@ namespace GettingRealConsoleApp
             r16.AmountInDkk = 688;
             r16.UserLevel = 5;
             r16.UserId = 5;
+            r16.ShopId = 4;
             r16.Status = 1;
 
             receipts.Add(r16);
@@ -320,6 +331,7 @@ namespace GettingRealConsoleApp
             r17.AmountInDkk = 422;
             r17.UserLevel = 4;
             r17.UserId = 6;
+            r17.ShopId = 5;
             r17.Status = 1;
 
             receipts.Add(r17);
@@ -331,6 +343,7 @@ namespace GettingRealConsoleApp
             r18.AmountInDkk = 518;
             r18.UserLevel = 1;
             r18.UserId = 7;
+            r18.ShopId = 6;
             r18.Status = 1;
 
             receipts.Add(r18);
@@ -342,6 +355,7 @@ namespace GettingRealConsoleApp
             r19.AmountInDkk = 513;
             r19.UserLevel = 1;
             r19.UserId = 8;
+            r19.ShopId = 7;
             r19.Status = 1;
 
             receipts.Add(r19);
@@ -353,6 +367,7 @@ namespace GettingRealConsoleApp
             r20.AmountInDkk = 518;
             r20.UserLevel = 1;
             r20.UserId = 9;
+            r20.ShopId = 1;
             r20.Status = 1;
 
             receipts.Add(r20);
@@ -364,6 +379,7 @@ namespace GettingRealConsoleApp
             r21.AmountInDkk = 322;
             r21.UserLevel = 1;
             r21.UserId = 10;
+            r21.ShopId = 2;
             r21.Status = 1;
 
             receipts.Add(r21);
@@ -375,6 +391,7 @@ namespace GettingRealConsoleApp
             r22.AmountInDkk = 450;
             r22.UserLevel = 1;
             r22.UserId = 1;
+            r22.ShopId = 3;
             r22.Status = 1;
 
             receipts.Add(r22);
@@ -386,6 +403,7 @@ namespace GettingRealConsoleApp
             r23.AmountInDkk = 222;
             r23.UserLevel = 1;
             r23.UserId = 2;
+            r23.ShopId = 4;
             r23.Status = 1;
 
             receipts.Add(r23);
@@ -397,6 +415,7 @@ namespace GettingRealConsoleApp
             r24.AmountInDkk = 518;
             r24.UserLevel = 1;
             r24.UserId = 3;
+            r24.ShopId = 5;
             r24.Status = 0;
 
             receipts.Add(r24);
@@ -408,6 +427,7 @@ namespace GettingRealConsoleApp
             r25.AmountInDkk = 333;
             r25.UserLevel = 1;
             r25.UserId = 4;
+            r25.ShopId = 6;
             r25.Status = 3;
 
             receipts.Add(r25);
@@ -419,6 +439,7 @@ namespace GettingRealConsoleApp
             r26.AmountInDkk = 518;
             r26.UserLevel = 1;
             r26.UserId = 5;
+            r26.ShopId = 7;
             r26.Status = 3;
 
             receipts.Add(r26);
