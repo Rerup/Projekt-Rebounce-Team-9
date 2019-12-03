@@ -176,7 +176,7 @@ namespace GettingRealConsoleApp
                 string paymentStatus;
                 if (r.Status == 4) { paymentStatus = "Betalt"; }
                 else { paymentStatus = "Ikke betalt"; }
-                Console.WriteLine(paymentStatus + "\t| " + u.FullName + "\t| " + u.Phone + "\t| " + r.AmountInDkk + "\t| " + GetNumberOfWinsForUser(u.Id) + "\t| ");
+                Console.WriteLine(paymentStatus + "| " + u.FullName + "| " + u.Phone + "\t\t| " + r.AmountInDkk + "\t\t| " + GetNumberOfWinsForUser(u.Id) + "\t\t| ");
             }
         }
 
