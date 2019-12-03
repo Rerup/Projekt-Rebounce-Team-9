@@ -7,7 +7,7 @@ namespace GettingRealConsoleApp.Domain
     public class User
     {
         public int Id;
-        public Level Level;
+        public int Level;
         public string UserName;
         public string FullName;
         public string Phone;

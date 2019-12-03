@@ -39,7 +39,7 @@ namespace GettingRealConsoleApp.Appl
             u1.UserName = "Basse1";
             u1.FullName = "Lone Nielsen";
             u1.Phone = "23877532";
-            u1.Level = new Level(LevelEnum.five);
+            u1.Level = 5;
             users.Add(u1);
 
             User u2 = new User();
@@ -47,7 +47,7 @@ namespace GettingRealConsoleApp.Appl
             u2.UserName = "Basse2";
             u2.FullName = "Lone Hansen";
             u2.Phone = "23837532";
-            u2.Level = new Level(LevelEnum.five);
+            u2.Level = 5;
             users.Add(u2);
 
             User u3 = new User();
@@ -55,7 +55,7 @@ namespace GettingRealConsoleApp.Appl
             u3.UserName = "Basse3";
             u3.FullName = "Lone Højre";
             u3.Phone = "23857532";
-            u3.Level = new Level(LevelEnum.five);
+            u3.Level = 5;
             users.Add(u3);
 
             User u4 = new User();
@@ -63,7 +63,7 @@ namespace GettingRealConsoleApp.Appl
             u4.UserName = "Basse4";
             u4.FullName = "Lone Næsby";
             u4.Phone = "23857542";
-            u4.Level = new Level(LevelEnum.five);
+            u4.Level = 5;
             users.Add(u4);
 
             User u5 = new User();
@@ -71,7 +71,7 @@ namespace GettingRealConsoleApp.Appl
             u5.UserName = "Basse5";
             u5.FullName = "Lone Jensen";
             u5.Phone = "23857531";
-            u5.Level = new Level(LevelEnum.five);
+            u5.Level = 5;
             users.Add(u5);
 
             User u6 = new User();
@@ -79,7 +79,7 @@ namespace GettingRealConsoleApp.Appl
             u6.UserName = "CupQuake1";
             u6.FullName = "Maria Johansson";
             u6.Phone = "23870982";
-            u6.Level = new Level(LevelEnum.five);
+            u6.Level = 5;
             users.Add(u6);
 
             User u7 = new User();
@@ -87,7 +87,7 @@ namespace GettingRealConsoleApp.Appl
             u7.UserName = "CupQuake2";
             u7.FullName = "Maria Hansen";
             u7.Phone = "29684532";
-            u7.Level = new Level(LevelEnum.five);
+            u7.Level = 5;
             users.Add(u7);
 
             User u8 = new User();
@@ -95,7 +95,7 @@ namespace GettingRealConsoleApp.Appl
             u8.UserName = "CupQuake3";
             u8.FullName = "Maria Jensen";
             u8.Phone = "23857772";
-            u8.Level = new Level(LevelEnum.five);
+            u8.Level = 5;
             users.Add(u8);
 
             User u9 = new User();
@@ -103,7 +103,7 @@ namespace GettingRealConsoleApp.Appl
             u9.UserName = "Rick";
             u9.FullName = "Ernst Pewdersmith";
             u9.Phone = "42897584";
-            u9.Level = new Level(LevelEnum.five);
+            u9.Level = 5;
             users.Add(u9);
 
             User u10 = new User();
@@ -111,7 +111,7 @@ namespace GettingRealConsoleApp.Appl
             u10.UserName = "Morty";
             u10.FullName = "Lucas Iversen";
             u10.Phone = "14829131";
-            u10.Level = new Level(LevelEnum.five);
+            u10.Level = 5;
             users.Add(u10);
 
         }
