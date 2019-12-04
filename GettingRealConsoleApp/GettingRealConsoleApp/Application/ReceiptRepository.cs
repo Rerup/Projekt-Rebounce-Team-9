@@ -65,14 +65,13 @@ namespace GettingRealConsoleApp
         public Receipt CreateNewReceipt(DateTime insertDate, int userId)
         {
             Receipt receipt = new Receipt();
-            receipt.Id = receipts.Count;
+            receipt.Id = receipts.Count +1;
             receipt.InsertDate = insertDate;
             receipt.UserId = userId;
             receipt.Status = 0;
             
 
      
-            receipts.Add(receipt);
             return receipt;
         }
 

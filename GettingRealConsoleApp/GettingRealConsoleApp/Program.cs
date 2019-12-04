@@ -42,7 +42,25 @@ namespace GettingRealConsoleApp
                         {
                             case 1:
                                 //Create New Receipt
+                                Console.WriteLine("Hvad er indsætningsdato?");
+                                Console.WriteLine("År:");
+                                int year = int.Parse(Console.ReadLine());
+                                Console.WriteLine("Måned:");
+                                int month = int.Parse(Console.ReadLine());
+                                Console.WriteLine("Dag:");
+                                int day = int.Parse(Console.ReadLine());
+                                DateTime insert = new DateTime(year, month, day);
 
+
+                                Console.WriteLine("Hvad er bruger id'et?");
+                                int userid = int.Parse(Console.ReadLine());
+
+                                Console.WriteLine("Tryk Enter for at fortsætte");
+                                Console.ReadLine();
+
+                                Receipt newReceipt = receiptRepo.CreateNewReceipt(insert, userid);
+
+                                receiptRepo.receipts.Add(newReceipt);
                                 break;
                             case 2:
                                 //Edit Receipt
