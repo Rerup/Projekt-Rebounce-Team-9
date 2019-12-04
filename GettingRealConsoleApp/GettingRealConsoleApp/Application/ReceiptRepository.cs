@@ -10,7 +10,7 @@ namespace GettingRealConsoleApp
     public class ReceiptRepository
     {
         public List<Receipt> receipts = new List<Receipt>();
-        PartnerRepository partnerRepo = new PartnerRepository();
+        //PartnerRepository partnerRepo = new PartnerRepository();
 
         
 
@@ -70,10 +70,6 @@ namespace GettingRealConsoleApp
             receipt.UserId = userId;
             receipt.Status = 0;
 
-<<<<<<< HEAD
-     
-=======
->>>>>>> d3ad395b42fa7523216c11640659325b5aba9d03
             return receipt;
         }
 
@@ -98,28 +94,28 @@ namespace GettingRealConsoleApp
             PrintReceipts(124, r1List);
         }
     
-        public Receipt EditReceipt(int id, DateTime purchaseDate, int amount, int shopId)
+        public Receipt EditReceipt(int id, DateTime purchaseDate, int amount, int shopId, PartnerRepository partnerRepo)
         {
-            foreach (Receipt receipt in receipts)
+            Receipt r = GetReceipt(id);
+
+            if(r == null) 
             {
-                if (receipt.Id == id)
-                {
-                    receipt.PurchaseDate = purchaseDate;
-                    receipt.AmountInDkk = amount;
-                    receipt.ShopId = shopId;
+                Console.WriteLine("Kvittering findes ikke, tryk enter for at fortsætte...");
+                Console.ReadLine();
+                return null; 
+            }
 
-                    if (validateReceipt(receipt, partnerRepo)) { receipt.Status = 1; }
+            r.PurchaseDate = purchaseDate;
+            r.AmountInDkk = amount;
+            r.ShopId = shopId;
 
-                    return receipt;
-                }
-            }  
-            //if no receipt is found return null
-            return null;
+            if (ValidateReceipt(r, partnerRepo)) { r.Status = 1; }
+
+            return r;
         }
 
-        public bool validateReceipt(Receipt receipt , PartnerRepository partnerRepository)
+        public bool ValidateReceipt(Receipt receipt , PartnerRepository partnerRepository)
         {
-
             if((receipt.InsertDate - receipt.PurchaseDate).TotalDays <= 7)
             {
                 if(receipt.ShopId != 0 )

@@ -41,6 +41,7 @@ namespace GettingRealConsoleApp.Appl
             Chido.shops.Add(Chido1);
             Chido.shops.Add(Chido2);
             Chido.shops.Add(Chido3);
+            partners.Add(Chido);
 
 
             Partner Pita = new Partner();
@@ -54,7 +55,7 @@ namespace GettingRealConsoleApp.Appl
             Pita1.Zipcode = "8000 Aarhus";
             
             Pita.shops.Add(Pita1);
-
+            partners.Add(Pita);
 
             Partner Senza = new Partner();
             Senza.Id = 3;
@@ -67,6 +68,7 @@ namespace GettingRealConsoleApp.Appl
             Senza1.Zipcode = "8000 Aarhus";
             
             Senza.shops.Add(Senza1);
+            partners.Add(Senza);
 
 
             Partner Roots = new Partner();
@@ -80,6 +82,7 @@ namespace GettingRealConsoleApp.Appl
             Roots1.Zipcode = "8200 Aarhus";
             
             Roots.shops.Add(Roots1);
+            partners.Add(Roots);
 
 
             Partner CafeG = new Partner();
@@ -94,6 +97,7 @@ namespace GettingRealConsoleApp.Appl
             CafeG1.Zipcode = "8000 Aarhus";
 
             CafeG.shops.Add(CafeG1);
+            partners.Add(CafeG);
 
 
 

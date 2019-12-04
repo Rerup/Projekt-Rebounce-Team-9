@@ -64,6 +64,55 @@ namespace GettingRealConsoleApp
                                 break;
                             case 2:
                                 //Edit Receipt
+                                Console.WriteLine("Hvad er id'et?");
+                                int receiptId = int.Parse(Console.ReadLine());
+
+                                if(receiptId == 0)
+                                {
+                                    Console.WriteLine("Du har ikke valgt en kvittering, prøv igen...");
+                                    Console.ReadLine();
+                                    break;
+                                }
+
+                                Console.WriteLine("Hvad er købsdato?");
+                                Console.WriteLine("År:");
+                                year = int.Parse(Console.ReadLine());
+                                Console.WriteLine("Måned:");
+                                month = int.Parse(Console.ReadLine());
+                                Console.WriteLine("Dag:");
+                                day = int.Parse(Console.ReadLine());
+
+                                if (year == 0 || month == 0 || day == 0)
+                                {
+                                    Console.WriteLine("Du har ikke indtastet en gyldig kvittering, prøv igen...");
+                                    Console.ReadLine();
+                                    break;
+                                }
+
+                                DateTime purchase = new DateTime(year, month, day);
+
+                                Console.WriteLine("Hvad er beløbet?");
+                                int amount = int.Parse(Console.ReadLine());
+
+                                if (amount == 0)
+                                {
+                                    Console.WriteLine("Du har ikke indtastet et gyldigt beløb, prøv igen...");
+                                    Console.ReadLine();
+                                    break;
+                                }
+
+                                Console.WriteLine("Hvilken butiks id hører til?");
+                                int shopId = int.Parse(Console.ReadLine());
+
+                                if (shopId == 0)
+                                {
+                                    Console.WriteLine("Du har ikke indtastet et butiks id, prøv igen...");
+                                    Console.ReadLine();
+                                    break;
+                                }
+
+                                receiptRepo.EditReceipt(receiptId , purchase , amount, shopId, partnerRepo);
+
                                 break;
                             default: Console.WriteLine("Invalid number"); 
                                 break;
