@@ -69,9 +69,11 @@ namespace GettingRealConsoleApp
             receipt.InsertDate = insertDate;
             receipt.UserId = userId;
             receipt.Status = 0;
-            
 
+<<<<<<< HEAD
      
+=======
+>>>>>>> d3ad395b42fa7523216c11640659325b5aba9d03
             return receipt;
         }
 
