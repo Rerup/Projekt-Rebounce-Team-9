@@ -542,7 +542,8 @@ namespace GettingRealConsoleApp
 
             receipts.Add(r26);
 
-            Receipt r27 = new Receipt(); // Vinder Kvittering
+
+            Receipt r27 = new Receipt();
             r27.Id = 27;
             r27.InsertDate = new DateTime(2019, 11, 9);
             r27.PurchaseDate = new DateTime(2019, 10, 8);
@@ -550,12 +551,12 @@ namespace GettingRealConsoleApp
             r27.UserLevel = 1;
             r27.UserId = 2;
             r27.ShopId = 3;
-            r27.Status = 2;
+            r27.Status = 1;
 
             receipts.Add(r27);
 
 
-            Receipt r28 = new Receipt(); // Vinder Kvittering
+            Receipt r28 = new Receipt();
             r28.Id = 28;
             r28.InsertDate = new DateTime(2019, 11, 7);
             r28.PurchaseDate = new DateTime(2019, 10, 3);
@@ -563,11 +564,11 @@ namespace GettingRealConsoleApp
             r28.UserLevel = 2;
             r28.UserId = 5;
             r28.ShopId = 2;
-            r28.Status = 2;
+            r28.Status = 1;
 
             receipts.Add(r28);
 
-            Receipt r29 = new Receipt(); // Vinder Kvittering
+            Receipt r29 = new Receipt();
             r29.Id = 29;
             r29.InsertDate = new DateTime(2019, 11, 7);
             r29.PurchaseDate = new DateTime(2019, 10, 3);
@@ -575,9 +576,69 @@ namespace GettingRealConsoleApp
             r29.UserLevel = 2;
             r29.UserId = 5;
             r29.ShopId = 2;
-            r29.Status = 4;
+            r29.Status = 1;
 
             receipts.Add(r29);
+
+            Receipt r30 = new Receipt();
+            r30.Id = 30;
+            r30.InsertDate = new DateTime(2019, 11, 10);
+            r30.PurchaseDate = new DateTime(2019, 11, 12);
+            r30.AmountInDkk = 178;
+            r30.UserLevel = 1;
+            r30.UserId = 10;
+            r30.ShopId = 2;
+            r30.Status = 1;
+
+            receipts.Add(r30);
+
+            Receipt r31 = new Receipt();
+            r31.Id = 31;
+            r31.InsertDate = new DateTime(2019, 11, 11);
+            r31.PurchaseDate = new DateTime(2019, 11, 12);
+            r31.AmountInDkk = 346;
+            r31.UserLevel = 5;
+            r31.UserId = 11;
+            r31.ShopId = 5;
+            r31.Status = 1;
+
+            receipts.Add(r31);
+
+            Receipt r32 = new Receipt();
+            r32.Id = 32;
+            r32.InsertDate = new DateTime(2019, 11, 15);
+            r32.PurchaseDate = new DateTime(2019, 11, 16);
+            r32.AmountInDkk = 450;
+            r32.UserLevel = 5;
+            r32.UserId = 12;
+            r32.ShopId = 5;
+            r32.Status = 1;
+
+            receipts.Add(r32);
+
+            Receipt r33 = new Receipt();
+            r33.Id = 33;
+            r33.InsertDate = new DateTime(2019, 11, 17);
+            r33.PurchaseDate = new DateTime(2019, 11, 17);
+            r33.AmountInDkk = 511;
+            r33.UserLevel = 5;
+            r33.UserId = 13;
+            r33.ShopId = 4;
+            r33.Status = 1;
+
+            receipts.Add(r33);
+
+            Receipt r34 = new Receipt();
+            r34.Id = 34;
+            r34.InsertDate = new DateTime(2019, 11, 19);
+            r34.PurchaseDate = new DateTime(2019, 11, 20);
+            r34.AmountInDkk = 78;
+            r34.UserLevel = 5;
+            r34.UserId = 14;
+            r34.ShopId = 3;
+            r34.Status = 1;
+
+            receipts.Add(r34);
 
 
             //Levels nulstillet hver måned???
