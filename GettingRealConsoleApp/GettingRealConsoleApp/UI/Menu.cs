@@ -21,7 +21,7 @@ namespace GettingRealConsoleApp.UI
             userRepo.AddHardCode();
         }
 
-        public void displayMenu()
+        public void DisplayMenu()
         {
             bool isRunning = true;
 

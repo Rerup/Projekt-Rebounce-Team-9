@@ -18,7 +18,7 @@ namespace GettingRealConsoleApp
         {
             Menu menu = new Menu();
             menu.AddHardCode();
-            menu.displayMenu();
+            menu.DisplayMenu();
         }
     }
 }
