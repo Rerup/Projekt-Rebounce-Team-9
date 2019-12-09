@@ -208,6 +208,40 @@ namespace GettingRealConsoleApp
             return result;
         }
 
+        public Receipt GetWinner()
+        {
+
+            //Setup of tickets:
+            //For each ticket add its 'id' as many times as it has points.
+            //
+            int totalPoints = 0;
+            List<Receipt> pool = GetReceipts(1); //GetPool()??
+            List<int> tickets = new List<int>();
+
+            foreach(Receipt receipt in pool)
+            {
+                int points = 8 - (receipt.UserLevel - 1);
+                totalPoints += points;
+
+                for(int i = 1; i <= points; i++)
+                {
+                    tickets.Add(receipt.Id);
+                }
+
+            }
+
+            //Select winner
+            Random rnd = new Random();
+
+            int rndId = rnd.Next(0, totalPoints - 1);
+            int winnerId = tickets[rndId];
+            Receipt winnerReceipt = GetReceipt(winnerId);
+
+            return winnerReceipt;
+
+        }
+
+
         public void AddHardCode()
         {
             Receipt r1 = new Receipt();

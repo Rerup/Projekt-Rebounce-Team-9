@@ -19,6 +19,8 @@ namespace GettingRealConsoleApp
             receiptRepo.AddHardCode();
             userRepo.AddHardCode();
 
+            receiptRepo.GetWinner();
+
             bool isRunning = true;
 
             while (isRunning == true)
