@@ -235,9 +235,9 @@ namespace GettingRealConsoleApp
 
             int rndId = rnd.Next(0, totalPoints - 1);
             int winnerId = tickets[rndId];
-            Receipt winnerReceipt = GetReceipt(winnerId);
+            GetReceipt(winnerId).Status = 2;
 
-            return winnerReceipt;
+            return GetReceipt(winnerId);
 
         }
 
