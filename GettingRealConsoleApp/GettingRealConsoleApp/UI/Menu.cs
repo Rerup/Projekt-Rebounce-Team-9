@@ -14,12 +14,15 @@ namespace GettingRealConsoleApp.UI
         ReceiptRepository receiptRepo = new ReceiptRepository();
         UserRepository userRepo = new UserRepository();
 
-        public void displayMenu()
+        public void AddHardCode()
         {
             partnerRepo.AddHardCode();
             receiptRepo.AddHardCode();
             userRepo.AddHardCode();
+        }
 
+        public void displayMenu()
+        {
             bool isRunning = true;
 
             while (isRunning == true)
