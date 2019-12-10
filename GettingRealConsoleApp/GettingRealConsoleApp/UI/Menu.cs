@@ -38,7 +38,7 @@ namespace GettingRealConsoleApp.UI
                     //Receipts
                     case 1:
                         Console.Clear();
-                        receiptRepo.ShowAll();
+                        receiptRepo.ShowAll(userRepo);
 
                         Console.WriteLine("Vælg:\n 1) Indskriv kvittering\n 2) Ret eksisterende kvittering\n\nAfslut med enter.");
 

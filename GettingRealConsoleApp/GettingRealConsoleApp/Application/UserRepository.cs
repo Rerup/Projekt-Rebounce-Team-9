@@ -100,7 +100,7 @@ namespace GettingRealConsoleApp.Appl
 
             User u9 = new User();
             u9.Id = 9;
-            u9.UserName = "Rick";
+            u9.UserName = "Rick1111";
             u9.FullName = "Ernst Pewdersmith";
             u9.Phone = "42897584";
             u9.Level = 5;
@@ -108,7 +108,7 @@ namespace GettingRealConsoleApp.Appl
 
             User u10 = new User();
             u10.Id = 10;
-            u10.UserName = "Morty";
+            u10.UserName = "Morty1111";
             u10.FullName = "Lucas Iversen";
             u10.Phone = "14829131";
             u10.Level = 5;
