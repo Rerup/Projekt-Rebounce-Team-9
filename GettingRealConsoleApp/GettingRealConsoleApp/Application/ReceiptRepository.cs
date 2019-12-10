@@ -153,7 +153,7 @@ namespace GettingRealConsoleApp
                 Console.WriteLine("");
                 Console.WriteLine("Liste over GODKENDTE kvitteringer");
                 Console.WriteLine("_________________________________________________________________________________________________________________________________");
-                Console.WriteLine("ID\t| Brugernavn(id)| Butik(id)\t| Beløb\t| Indsendt dato\t\t| Købsdato\t\t| Point(id)\t| Action\t\t|");
+                Console.WriteLine("ID\t| Brugernavn\t| Butik(id)\t| Beløb\t| Indsendt dato\t\t| Købsdato\t\t| Point(id)\t| Action\t\t|");
                 Console.WriteLine("_________________________________________________________________________________________________________________________________");
                 foreach (Receipt r in receipts)
                 {
