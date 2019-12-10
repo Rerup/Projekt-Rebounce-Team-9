@@ -12,6 +12,7 @@ namespace GettingRealConsoleApp.Domain
         public List<Shop> shops = new List<Shop>();
         public Shop GetShop(int id)
         {
+            //Not implemented
             return new Shop();
         }
         public override string ToString()

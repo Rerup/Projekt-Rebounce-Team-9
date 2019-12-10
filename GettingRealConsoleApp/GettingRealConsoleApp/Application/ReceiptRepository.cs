@@ -73,7 +73,7 @@ namespace GettingRealConsoleApp
             return receipt;
         }
 
-        public void ShowAll(UserRepository userRepo)
+        public void ShowAll(UserRepository userRepo, PartnerRepository partnerRepo)
         {
             //Kald IKKE GODKENDTE kvitteringer
             List<Receipt> r0List = GetReceipts(0);
@@ -88,10 +88,10 @@ namespace GettingRealConsoleApp
             r1List.AddRange(r4List);
 
             //Print IKKE GODKENDTE
-            PrintReceipts(0, r0List, userRepo);
+            PrintReceipts(0, r0List, userRepo, partnerRepo);
 
             //Print GODKENDTE
-            PrintReceipts(124, r1List, userRepo);
+            PrintReceipts(124, r1List, userRepo, partnerRepo);
         }
     
         public Receipt EditReceipt(int id, DateTime purchaseDate, int amount, int shopId, PartnerRepository partnerRepo)
@@ -134,7 +134,7 @@ namespace GettingRealConsoleApp
             return false;
         }
 
-        public void PrintReceipts(int status, List<Receipt> receipts, UserRepository userRepo)
+        public void PrintReceipts(int status, List<Receipt> receipts, UserRepository userRepo, PartnerRepository partnerRepo)
         {
             if (status == 0)
             {
@@ -156,13 +156,14 @@ namespace GettingRealConsoleApp
                 Console.WriteLine("");
                 Console.WriteLine("Liste over GODKENDTE kvitteringer");
                 Console.WriteLine("_________________________________________________________________________________________________________________________________");
-                Console.WriteLine("ID\t| Brugernavn\t\t| Butik(id)\t| Beløb\t| Indsendt dato\t\t| Købsdato\t\t| Point(id)\t| Action|");
+                Console.WriteLine("ID\t| Brugernavn\t\t| Butik\t\t| Beløb\t| Indsendt dato\t\t| Købsdato\t\t| Point\t\t| Action |");
                 Console.WriteLine("_________________________________________________________________________________________________________________________________");
                 foreach (Receipt r in receipts)
                 {
                     int points = 8 - (r.UserLevel - 1);
                     User u = userRepo.GetUser(r.UserId);
-                    Console.WriteLine(r.Id + "\t| " + u.UserName + "\t\t| " + r.ShopId + "\t\t| " + r.AmountInDkk + "\t| " + r.InsertDate + "\t| " + r.PurchaseDate + "\t| " + points + "\t\t| Rediger\t|");
+                    Shop s = partnerRepo.GetShop(r.ShopId);
+                    Console.WriteLine(r.Id + "\t| " + u.UserName + "\t\t| " + s.Name + "\t| " + r.AmountInDkk + "\t| " + r.InsertDate + "\t| " + r.PurchaseDate + "\t| " + points + "\t\t| Rediger|");
                 }
             }
         }

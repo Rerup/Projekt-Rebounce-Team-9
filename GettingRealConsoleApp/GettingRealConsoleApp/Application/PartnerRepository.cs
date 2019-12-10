@@ -13,6 +13,21 @@ namespace GettingRealConsoleApp.Appl
             return new Partner();
         }
 
+        public Shop GetShop(int id)
+        {
+            foreach(Partner p in partners)
+            {
+                foreach(Shop s in p.shops)
+                {
+                    if(s.Id == id)
+                    {
+                        return s;
+                    }
+                }
+            }
+            return null;
+        }
+
         public void AddHardCode()
         {
             Partner Chido = new Partner();
@@ -22,19 +37,19 @@ namespace GettingRealConsoleApp.Appl
 
             Shop Chido1 = new Shop();
             Chido1.Id = 1;
-            Chido1.Name = "Chido Mexican Grill";
+            Chido1.Name = "Chido 1";
             Chido1.Adress = "Mejlgade 48a";
             Chido1.Zipcode = "8000 Aarhus";
 
             Shop Chido2 = new Shop();
             Chido2.Id = 2;
-            Chido2.Name = "Chido Mexican Grill";
+            Chido2.Name = "Chido 2";
             Chido2.Adress = "Frederiks Allé 135";
             Chido2.Zipcode = "8000 Aarhus";
 
             Shop Chido3 = new Shop();
             Chido3.Id = 3;
-            Chido3.Name = "Chido Mexican Grill";
+            Chido3.Name = "Chido 3";
             Chido3.Adress = "Boulevarden 7";
             Chido3.Zipcode = "9000 Aalborg";
 
@@ -50,7 +65,7 @@ namespace GettingRealConsoleApp.Appl
             
             Shop Pita1 = new Shop();
             Pita1.Id = 4;
-            Pita1.Name = "Pita Planet";
+            Pita1.Name = "Pita 1";
             Pita1.Adress = "Sankt Clemens Stræde 7";
             Pita1.Zipcode = "8000 Aarhus";
             
@@ -63,7 +78,7 @@ namespace GettingRealConsoleApp.Appl
             
             Shop Senza1 = new Shop();
             Senza1.Id = 5;
-            Senza1.Name = "Senzasian";
+            Senza1.Name = "Senzasian 1";
             Senza1.Adress = "Irma Pedersens Gade 2A";
             Senza1.Zipcode = "8000 Aarhus";
             
@@ -77,7 +92,7 @@ namespace GettingRealConsoleApp.Appl
 
             Shop Roots1 = new Shop();
             Roots1.Id = 6;
-            Roots1.Name = "Roots Juicde & 'Wich";
+            Roots1.Name = "Roots 1";
             Roots1.Adress = "Storcenter Nord: Finlandsgade 17";
             Roots1.Zipcode = "8200 Aarhus";
             
@@ -92,7 +107,7 @@ namespace GettingRealConsoleApp.Appl
 
             Shop CafeG1 = new Shop();
             CafeG1.Id = 7;
-            CafeG1.Name = "Cafe Gemmestedet";
+            CafeG1.Name = "Gemmestedet";
             CafeG1.Adress = "Gammel Munkegade 1";
             CafeG1.Zipcode = "8000 Aarhus";
 
