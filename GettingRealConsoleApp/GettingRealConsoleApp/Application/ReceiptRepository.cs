@@ -73,7 +73,7 @@ namespace GettingRealConsoleApp
             return receipt;
         }
 
-        public void ShowAll()
+        public void ShowAll(UserRepository userRepo)
         {
             //Kald IKKE GODKENDTE kvitteringer
             List<Receipt> r0List = GetReceipts(0);
@@ -88,10 +88,10 @@ namespace GettingRealConsoleApp
             r1List.AddRange(r4List);
 
             //Print IKKE GODKENDTE
-            PrintReceipts(0, r0List);
+            PrintReceipts(0, r0List, userRepo);
 
             //Print GODKENDTE
-            PrintReceipts(124, r1List);
+            PrintReceipts(124, r1List, userRepo);
         }
     
         public Receipt EditReceipt(int id, DateTime purchaseDate, int amount, int shopId, PartnerRepository partnerRepo)
@@ -134,30 +134,34 @@ namespace GettingRealConsoleApp
             return false;
         }
 
-        public void PrintReceipts(int status, List<Receipt> receipts)
+        public void PrintReceipts(int status, List<Receipt> receipts, UserRepository userRepo)
         {
             if (status == 0)
             {
+                
                 Console.WriteLine("_________________________________________________________________");
                 Console.WriteLine("Liste over IKKE GODKENDTE kvitteringer");
                 Console.WriteLine("_________________________________________________________________");
-                Console.WriteLine("ID\t| Brugernavn\t| Indsendt dato\t\t| Action\t|");
+                Console.WriteLine("ID\t| Brugernavn\t\t| Indsendt dato\t\t| Action |");
                 Console.WriteLine("_________________________________________________________________");
                 foreach (Receipt r in receipts)
                 {
-                    Console.WriteLine(r.Id + "\t| " + r.UserId + "\t\t| " + r.InsertDate + "\t| Rediger\t|");
+                    User u = userRepo.GetUser(r.UserId);
+                    Console.WriteLine(r.Id + "\t| " + u.FullName + "\t\t| " + r.InsertDate + "\t| Rediger|");
                 }
             }
             if (status == 124)
             {
+                
                 Console.WriteLine("");
                 Console.WriteLine("Liste over GODKENDTE kvitteringer");
                 Console.WriteLine("_________________________________________________________________________________________________________________________________");
-                Console.WriteLine("ID\t| Brugernavn\t| Butik(id)\t| Beløb\t| Indsendt dato\t\t| Købsdato\t\t| Point(id)\t| Action\t\t|");
+                Console.WriteLine("ID\t| Brugernavn\t\t| Butik(id)\t| Beløb\t| Indsendt dato\t\t| Købsdato\t\t| Point(id)\t| Action|");
                 Console.WriteLine("_________________________________________________________________________________________________________________________________");
                 foreach (Receipt r in receipts)
                 {
-                    Console.WriteLine(r.Id + "\t| " + r.UserId + "\t\t| " + r.ShopId + "\t\t| " + r.AmountInDkk + "\t| " + r.InsertDate + "\t| " + r.PurchaseDate + "\t| " + r.UserLevel + "\t\t| Rediger\t|");
+                    User u = userRepo.GetUser(r.UserId);
+                    Console.WriteLine(r.Id + "\t| " + u.UserName + "\t\t| " + r.ShopId + "\t\t| " + r.AmountInDkk + "\t| " + r.InsertDate + "\t| " + r.PurchaseDate + "\t| " + r.UserLevel + "\t\t| Rediger\t|");
                 }
             }
         }
