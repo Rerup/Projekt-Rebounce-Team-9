@@ -153,11 +153,12 @@ namespace GettingRealConsoleApp
                 Console.WriteLine("");
                 Console.WriteLine("Liste over GODKENDTE kvitteringer");
                 Console.WriteLine("_________________________________________________________________________________________________________________________________");
-                Console.WriteLine("ID\t| Brugernavn(id)| Butik(id)\t| Beløb\t| Indsendt dato\t\t| Købsdato\t\t| Point(id)\t| Action\t\t|");
+                Console.WriteLine("ID\t| Brugernavn(id)| Butik(id)\t| Beløb\t| Indsendt dato\t\t| Købsdato\t\t| Points\t| Action\t\t|");
                 Console.WriteLine("_________________________________________________________________________________________________________________________________");
                 foreach (Receipt r in receipts)
                 {
-                    Console.WriteLine(r.Id + "\t| " + r.UserId + "\t\t| " + r.ShopId + "\t\t| " + r.AmountInDkk + "\t| " + r.InsertDate + "\t| " + r.PurchaseDate + "\t| " + r.UserLevel + "\t\t| Rediger\t|");
+                    int points = 8 - (r.UserLevel - 1);
+                    Console.WriteLine(r.Id + "\t| " + r.UserId + "\t\t| " + r.ShopId + "\t\t| " + r.AmountInDkk + "\t| " + r.InsertDate + "\t| " + r.PurchaseDate + "\t| " + points + "\t\t| Rediger\t|");
                 }
             }
         }

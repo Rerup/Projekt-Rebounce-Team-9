@@ -170,7 +170,7 @@ namespace GettingRealConsoleApp.UI
                         //Her vises den aktuelle pulje og en liste af vindere, så snart man kommer ind i menuen
                         Console.Clear();
                         receiptRepo.PrintWinners(receiptRepo.GetReceipts(2, 4), userRepo);
-                        Console.WriteLine("Vælg:\n 1) Rediger i kvittering\n2) Find en vinder\n0) Quit\n\nAfslut med enter.");
+                        Console.WriteLine("\nVælg:\n1) Rediger i kvittering\n2) Find en vinder\n0) Quit\n\nAfslut med enter.");
                         int taskPool = int.Parse(Console.ReadLine());
                         switch (taskPool)
                         {
