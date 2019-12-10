@@ -406,7 +406,7 @@ namespace GettingRealConsoleApp
             r15.UserLevel = 5;
             r15.UserId = 4;
             r15.ShopId = 3;
-            r15.Status = 1;
+            r15.Status = 2;
 
             receipts.Add(r15);
 
@@ -598,7 +598,7 @@ namespace GettingRealConsoleApp
             r31.PurchaseDate = new DateTime(2019, 11, 12);
             r31.AmountInDkk = 346;
             r31.UserLevel = 5;
-            r31.UserId = 11;
+            r31.UserId = 4;
             r31.ShopId = 5;
             r31.Status = 1;
 
@@ -610,7 +610,7 @@ namespace GettingRealConsoleApp
             r32.PurchaseDate = new DateTime(2019, 11, 16);
             r32.AmountInDkk = 450;
             r32.UserLevel = 5;
-            r32.UserId = 12;
+            r32.UserId = 7;
             r32.ShopId = 5;
             r32.Status = 1;
 
@@ -622,7 +622,7 @@ namespace GettingRealConsoleApp
             r33.PurchaseDate = new DateTime(2019, 11, 17);
             r33.AmountInDkk = 511;
             r33.UserLevel = 5;
-            r33.UserId = 13;
+            r33.UserId = 3;
             r33.ShopId = 4;
             r33.Status = 1;
 
@@ -634,7 +634,7 @@ namespace GettingRealConsoleApp
             r34.PurchaseDate = new DateTime(2019, 11, 20);
             r34.AmountInDkk = 78;
             r34.UserLevel = 5;
-            r34.UserId = 14;
+            r34.UserId = 10;
             r34.ShopId = 3;
             r34.Status = 1;
 
