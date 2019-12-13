@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Text;
 using GettingRealConsoleApp.Appl;
-using GettingRealConsoleApp.Domain;
 
 
 namespace GettingRealConsoleApp.UI
@@ -77,10 +76,8 @@ namespace GettingRealConsoleApp.UI
                                 Console.WriteLine("Tryk Enter for at fortsætte");
                                 Console.ReadLine();
 
-                                //Creating Receipt object from user inputs
-                                Receipt newReceipt = receiptRepo.CreateNewReceipt(insert, userid);
                                 //Adding new receipt object to Repository list
-                                receiptRepo.receipts.Add(newReceipt);
+                                receiptRepo.receipts.Add(receiptRepo.CreateNewReceipt(insert, userid));
                                 break;
 
                             case 2:
