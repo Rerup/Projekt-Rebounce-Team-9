@@ -9,7 +9,9 @@ namespace GettingRealConsoleApp.Appl
     {
         public List<User> users = new List<User>(); //Initialisering af liste med brugere
 
-        public User GetUser(int id)  //Henter liste over Brugere
+
+        //Gets particular user based on id
+        public User GetUser(int id)  
         {
             foreach(User u in users)
             {
@@ -20,18 +22,9 @@ namespace GettingRealConsoleApp.Appl
             }
             return null;
         }
-
-        public List<User> GetUsers(List<int> userIds)
-        {
-            List<User> userList = new List<User>();
-            foreach(int i in userIds)
-            {
-                userList.Add(GetUser(i));
-            }
-            return userList;
-        }
         
-
+        //This method construcs new user objects
+        //Users are added to the repositorys user list, users
         public void AddHardCode()
         {
             User u1 = new User();

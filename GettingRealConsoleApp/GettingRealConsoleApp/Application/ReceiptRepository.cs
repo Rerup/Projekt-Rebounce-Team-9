@@ -9,17 +9,14 @@ namespace GettingRealConsoleApp
 {
     public class ReceiptRepository
     {
-        public List<Receipt> receipts = new List<Receipt>();
-        //PartnerRepository partnerRepo = new PartnerRepository();
+        public List<Receipt> receipts = new List<Receipt>();    
 
-        
-
-        //Skal indsætte de fundne receipts oppe i listen
+        //Get list of receipt based on their status attribute
         public List<Receipt> GetReceipts(int status)
         {
             List<Receipt> result = new List<Receipt>();
-            //result = null;
 
+            //Finds all receipts with this status attribute
             foreach (Receipt receipt in receipts)
             {
                 if  (receipt.Status == status)
@@ -31,11 +28,13 @@ namespace GettingRealConsoleApp
             return result;
         }
 
+
+        //Get receipts from 2 different status attributes
         public List<Receipt> GetReceipts(int status1, int status2)
         {
             List<Receipt> result = new List<Receipt>();
-            //result = null;
-
+            
+             
             foreach (Receipt receipt in receipts)
             {
                 if (receipt.Status == status1 || receipt.Status == status2)
@@ -48,7 +47,7 @@ namespace GettingRealConsoleApp
         }
 
 
-        //samme som ovenstående
+        //Get receipt object from id
         public Receipt GetReceipt(int id)
         {
             foreach (Receipt receipt in receipts)
@@ -62,17 +61,19 @@ namespace GettingRealConsoleApp
             return null;
         }
 
+        //Creates object from the essential parameters
         public Receipt CreateNewReceipt(DateTime insertDate, int userId)
         {
             Receipt receipt = new Receipt();
             receipt.Id = receipts.Count +1;
             receipt.InsertDate = insertDate;
             receipt.UserId = userId;
-            receipt.Status = 0;
+            receipt.Status = 0;     //Sets status as not validated. More properties need to be added for it to be validated
 
             return receipt;
         }
 
+        //Combines lists of different statuses and calls the print methods seperately
         public void ShowAll(UserRepository userRepo, PartnerRepository partnerRepo)
         {
             //Kald IKKE GODKENDTE kvitteringer
@@ -93,11 +94,14 @@ namespace GettingRealConsoleApp
             //Print GODKENDTE
             PrintReceipts(124, r1List, userRepo, partnerRepo);
         }
-    
+
+        //Validates receipt if parameters meets requirements
         public Receipt EditReceipt(int id, DateTime purchaseDate, int amount, int shopId, PartnerRepository partnerRepo)
         {
+            //Gets particular receipt
             Receipt r = GetReceipt(id);
 
+            //If not found
             if(r == null) 
             {
                 Console.WriteLine("Kvittering findes ikke, tryk enter for at fortsætte...");
@@ -109,11 +113,12 @@ namespace GettingRealConsoleApp
             r.AmountInDkk = amount;
             r.ShopId = shopId;
 
+            //Validates parameters
             if (ValidateReceipt(r, partnerRepo)) { r.Status = 1; }
 
             return r;
         }
-
+        //Validates receipt information - made for insert and edit receipt
         public bool ValidateReceipt(Receipt receipt , PartnerRepository partnerRepository)
         {
             if((receipt.InsertDate - receipt.PurchaseDate).TotalDays <= 7)
@@ -133,9 +138,10 @@ namespace GettingRealConsoleApp
             }
             return false;
         }
-
+        //Prints out templates for receipts based on status
         public void PrintReceipts(int status, List<Receipt> receipts, UserRepository userRepo, PartnerRepository partnerRepo)
         {
+            //Not validated receipts 
             if (status == 0)
             {
                 
@@ -150,6 +156,8 @@ namespace GettingRealConsoleApp
                     Console.WriteLine(r.Id + "\t| " + u.FullName + "\t\t| " + r.InsertDate + "\t| Rediger|");
                 }
             }
+            
+            //All validated receipts - Winners, validated and if the money is sent
             if (status == 124)
             {
                 
@@ -168,6 +176,7 @@ namespace GettingRealConsoleApp
             }
         }
 
+        //Prints lists of winner based on receipts
         public void PrintWinners(List<Receipt> receipts, UserRepository userRepository)
         {
             Console.WriteLine("");
@@ -185,6 +194,7 @@ namespace GettingRealConsoleApp
             }
         }
 
+        //Gets the number of wins for a single user, based on Id
         public int GetNumberOfWinsForUser(int id)
         {
             int result = 0;
@@ -202,6 +212,7 @@ namespace GettingRealConsoleApp
             return result;
         }
 
+        //Not fully implemented
         public List<Receipt> GetCurrentPool()
         {
             List<Receipt> result = new List<Receipt>();
@@ -214,11 +225,13 @@ namespace GettingRealConsoleApp
             return result;
         }
 
+        //Selects winner from pool
+        //Not fully implemented (doesnt take into account that there has to be 26 receipts)
         public Receipt GetWinner()
         {
 
-            //Setup of tickets:
-            //For each ticket add its 'id' as many times as it has points.
+            //Setup of receipts in pool:
+            //For each receipt add its 'id' as many times as it has points.
             //
             int totalPoints = 0;
             List<Receipt> pool = GetReceipts(1); //GetPool()??
@@ -226,7 +239,8 @@ namespace GettingRealConsoleApp
 
             foreach(Receipt receipt in pool)
             {
-                int points = 8 - (receipt.UserLevel - 1);
+                int points = 8 - (receipt.UserLevel - 1); //Turn UserLevel into points
+
                 totalPoints += points;
 
                 for(int i = 1; i <= points; i++)
@@ -247,7 +261,7 @@ namespace GettingRealConsoleApp
 
         }
 
-
+        //Creates receipts objects and adds them to ReceiptRepository list
         public void AddHardCode()
         {
             Receipt r1 = new Receipt();

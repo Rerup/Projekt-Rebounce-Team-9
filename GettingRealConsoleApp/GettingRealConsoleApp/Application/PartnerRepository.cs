@@ -8,11 +8,16 @@ namespace GettingRealConsoleApp.Appl
     {
         public List<Partner> partners = new List<Partner>();
 
+
+        //Get particular partner
+        //not implemented
         public Partner GetPartner(int id)
         {
             return new Partner();
         }
 
+
+        //Get particular shop from id
         public Shop GetShop(int id)
         {
             foreach(Partner p in partners)
@@ -28,6 +33,9 @@ namespace GettingRealConsoleApp.Appl
             return null;
         }
 
+
+        //This methods constructs partner and shop objects.
+        //Shops are added to the partners shops list and partners are added to the repositorys partner list, partners
         public void AddHardCode()
         {
             Partner Chido = new Partner();

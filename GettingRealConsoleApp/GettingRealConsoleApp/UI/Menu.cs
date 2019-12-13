@@ -10,43 +10,55 @@ namespace GettingRealConsoleApp.UI
     public class Menu
     {
 
+        //Instantiating our repositories
         PartnerRepository partnerRepo = new PartnerRepository();
         ReceiptRepository receiptRepo = new ReceiptRepository();
         UserRepository userRepo = new UserRepository();
 
+        //Instantiating objects and adding to lists in repositories
         public void AddHardCode()
         {
             partnerRepo.AddHardCode();
             receiptRepo.AddHardCode();
             userRepo.AddHardCode();
         }
-
+        
         public void DisplayMenu()
         {
+            //This property keeps the menu running indefinitely, through while-loop
             bool isRunning = true;
-
             while (isRunning == true)
             {
+                //Removes content from console
                 Console.Clear();
-                receiptRepo.GetCurrentPool();
+
+                //List of options
                 Console.WriteLine("Rebounce");
                 Console.WriteLine("Vælg:\n 1) Kvitteringer\n 2) Brugere\n 3) Partnere\n 4) Puljer\n 0) Quit\n\nAfslut med enter.");
+
+                //This property holds user input, for the switch to process
                 int command = int.Parse(Console.ReadLine());
 
                 switch (command)
                 {
-                    //Receipts
+                    //Receipts page is shown
                     case 1:
+                        //Removes content from console
                         Console.Clear();
+
+                        //Prints the lists of receipts, both invalid and valid
                         receiptRepo.ShowAll(userRepo, partnerRepo);
 
+                        //New list of options for Receipts
                         Console.WriteLine("Vælg:\n 1) Indskriv kvittering\n 2) Ret eksisterende kvittering\n\nAfslut med enter.");
 
+                        //This property holds user input, for the new switch to process
                         int taskReceipt = int.Parse(Console.ReadLine());
                         switch (taskReceipt)
                         {
                             case 1:
                                 //Create New Receipt
+                                //Takes user inputs for each parameter needed
                                 Console.WriteLine("Hvad er indsætningsdato?");
                                 Console.WriteLine("År:");
                                 int year = int.Parse(Console.ReadLine());
@@ -54,6 +66,8 @@ namespace GettingRealConsoleApp.UI
                                 int month = int.Parse(Console.ReadLine());
                                 Console.WriteLine("Dag:");
                                 int day = int.Parse(Console.ReadLine());
+                                
+                                //Formatting user inputs to datetime
                                 DateTime insert = new DateTime(year, month, day);
 
 
@@ -63,16 +77,19 @@ namespace GettingRealConsoleApp.UI
                                 Console.WriteLine("Tryk Enter for at fortsætte");
                                 Console.ReadLine();
 
+                                //Creating Receipt object from user inputs
                                 Receipt newReceipt = receiptRepo.CreateNewReceipt(insert, userid);
-
+                                //Adding new receipt object to Repository list
                                 receiptRepo.receipts.Add(newReceipt);
                                 break;
 
                             case 2:
                                 //Edit Receipt
+                                //Get specific Receipt Id
                                 Console.WriteLine("Hvad er id'et?");
                                 int receiptId = int.Parse(Console.ReadLine());
 
+                                //If receiptId is not entered
                                 if (receiptId == 0)
                                 {
                                     Console.WriteLine("Du har ikke valgt en kvittering, prøv igen...");
@@ -80,6 +97,7 @@ namespace GettingRealConsoleApp.UI
                                     break;
                                 }
 
+                                //Takes user inputs for each parameter needed
                                 Console.WriteLine("Hvad er købsdato?");
                                 Console.WriteLine("År:");
                                 year = int.Parse(Console.ReadLine());
@@ -88,6 +106,7 @@ namespace GettingRealConsoleApp.UI
                                 Console.WriteLine("Dag:");
                                 day = int.Parse(Console.ReadLine());
 
+                                //´Validates input
                                 if (year == 0 || month == 0 || day == 0)
                                 {
                                     Console.WriteLine("Du har ikke indtastet en gyldig kvittering, prøv igen...");
@@ -95,8 +114,10 @@ namespace GettingRealConsoleApp.UI
                                     break;
                                 }
 
+                                //Formatting user inputs to datetime
                                 DateTime purchase = new DateTime(year, month, day);
 
+                                //Get user input for amount on receipt
                                 Console.WriteLine("Hvad er beløbet?");
                                 int amount = int.Parse(Console.ReadLine());
 
@@ -107,6 +128,7 @@ namespace GettingRealConsoleApp.UI
                                     break;
                                 }
 
+                                //Get user input for which shop this receipt comes from
                                 Console.WriteLine("Hvilken butiks id hører til?");
                                 int shopId = int.Parse(Console.ReadLine());
 
@@ -117,6 +139,7 @@ namespace GettingRealConsoleApp.UI
                                     break;
                                 }
 
+                                //Calls method with inputs from the user and edits object
                                 receiptRepo.EditReceipt(receiptId, purchase, amount, shopId, partnerRepo);
 
                                 break;
@@ -167,7 +190,8 @@ namespace GettingRealConsoleApp.UI
 
                     //Pool
                     case 4:
-                        //Her vises den aktuelle pulje og en liste af vindere, så snart man kommer ind i menuen
+                        //Here is shown, the current pool and a list of winners from ealier pools, as soon as you enter this part of the menu.
+                        //This is not fully implemented
                         Console.Clear();
                         receiptRepo.PrintWinners(receiptRepo.GetReceipts(2, 4), userRepo);
                         Console.WriteLine("\nVælg:\n1) Rediger i kvittering\n2) Find en vinder\n0) Quit\n\nAfslut med enter.");
@@ -180,6 +204,7 @@ namespace GettingRealConsoleApp.UI
                                 //Edit reciept where taskPool == ID
                                 break;
                             case 2:
+                                //Finds new winner - not fully implemented
                                 Console.WriteLine(receiptRepo.GetWinner());
                                 Console.ReadLine();
                                 break;
